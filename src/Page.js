@@ -41,7 +41,7 @@ console.log(this.state.data.data)
       }
 
     render() { 
-
+      console.log(this.state.data.data)
 
 
         return ( 
@@ -51,7 +51,7 @@ console.log(this.state.data.data)
                 <input type="text" placeHolder ="הכנס את מילות החיפוש שמעניינות אותך למשל שלום , תפוח , פתח תקווה..." name="words" onChange={this.handleInput}/>
             </div >
             <div class="graph">
-                <Graph dataForGraph={this.state.data.data}/>
+                {this.state.data.data !== undefined? <Graph dataForGraph={this.state.data.data}/>: null}
             </div>
             </div>
          );
