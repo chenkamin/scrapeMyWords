@@ -1,33 +1,59 @@
-.App {
+body{
+  background-image: url("http://www.kol-barama.co.il/wp-content/uploads/2014/04/%D7%A2%D7%99%D7%AA%D7%95%D7%A0%D7%99%D7%9D-%D7%90%D7%99%D7%9C%D7%95%D7%A1%D7%98%D7%A8%D7%A6%D7%99%D7%941.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#all{
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
+.container{
+  margin-top: 10%;
+  align-self: center;
+  justify-self: center;
+  width:55%;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.graph{
+  margin-top: 10%;
+  align-self: center;
+  justify-self: center;
+}
+
+
+input{
+  height: 25px;
+  padding:10px;
+direction: rtl;
+border:none;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+opacity: 0.9;
+/* box-shadow: 1px 3px 5px 0px rgba(179,179,179,1); */
+}
+
+
+
+.btn{
   text-align: center;
+  line-height: 43px;
+  margin-top: -0.2%;
+  background-color:#1abc9c;
+  /* box-shadow: 1px 3px 5px 0px rgba(179,179,179,1); */
+  opacity: 0.9;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;  color: white;
+  cursor: pointer;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.btn:hover{
+  background-color:black;
+  color: #1abc9c;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

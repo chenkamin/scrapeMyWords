@@ -1,26 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import axios from 'axios';
+import Page from './Page';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      data : [],
+    }
+  }
+
+//   getData = async () =>  {
+//     let data = await axios.get("http://localhost:3001/fetchData")
+//     return data
+//  }
+
+ postData = async () => {
+  let data = await axios.post("http://localhost:3001/fetchData", {
+    
+    todo: this.state.todo,
+    category: this.state.category,
+    date: this.state.date,
+    status: this.state.status
+  })
+  return data
 }
 
+ componentDidMount = async () =>{
+  // let data = await this.getData()
+  // console.log(data.data)
+  // this.setState({ data: data.data })
+}
+// handleInput = (e) => {
+//   const target = e.target
+//   const value =target.value;
+//   const name = target.name;
+//   console.log(target.value)
+//   console.log(this.state)
+//   this.setState({[name] : value})
+// }
+
+claeanInputs = () => {
+  this.setState({
+  todo:"",
+  date: "",
+  category: ""
+  })
+ 
+}
+
+
+  render() { 
+    return (
+      <Router>
+      <div>
+        <Route path="/" exact render={() => <Page  handleInput={this.handleInput}/>} />
+
+
+       
+      </div>
+      </Router>
+
+      )
+  }
+}
+ 
 export default App;
