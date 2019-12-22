@@ -15,7 +15,7 @@ class Graph extends Component {
         return (
 
           <BarChart
-          width={500}
+          width={200}
           height={300}
           data={data}
           margin={{
@@ -25,7 +25,7 @@ class Graph extends Component {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="count" fill="white" />
+          <Bar dataKey="count" fill="#1abc9c" />
         </BarChart>
         );
       }

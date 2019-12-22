@@ -7,6 +7,8 @@ class Page extends Component {
         super()
         this.state = {
           data : [],
+          showInput: true,
+          showLoader: false
         }
       }
       
@@ -28,18 +30,24 @@ class Page extends Component {
 
 
     postData = async () => {
+      this.setState({showInput:false, showLoader:true})
         console.log(this.state.words)
         let data = await axios.post("http://localhost:3001/fetchData", {
           words:this.state.words 
         })
         console.log(data)
-        this.setState({data:data}, function(){
-console.log(this.state.data.data)
+
+        this.setState({data:data, showLoader:false}, function(){
+console.log(this.state)
         })
         // return data
 
       }
 
+      freshStart = async () =>{
+        this.setState({showInput:true, showLoader:false, data: ""})
+
+      }
     render() { 
       console.log(this.state.data.data)
 
@@ -47,11 +55,17 @@ console.log(this.state.data.data)
         return ( 
           <div id="all">
             <div class="container">
-                <div class="btn" onClick={this.postData}>חפש</div>
-                <input type="text" placeHolder ="הכנס את מילות החיפוש שמעניינות אותך למשל שלום , תפוח , פתח תקווה..." name="words" onChange={this.handleInput}/>
+                {this.state.showInput ?<div class="btn" onClick={this.postData}>חפש</div>: null}
+                {this.state.showInput ?<input type="text" placeHolder ="הכנס את מילות החיפוש שמעניינות אותך למשל שלום , תפוח , פתח תקווה..." name="words" onChange={this.handleInput}/>: null}
             </div >
             <div class="graph">
-                {this.state.data.data !== undefined? <Graph dataForGraph={this.state.data.data}/>: null}
+            <div class="loader">
+              {this.state.showLoader? <div class="circle"></div>: null}
+              {this.state.showLoader? <div class="circle"></div>: null}
+              {this.state.showLoader? <div class="circle"></div>: null}
+          </div>
+          {this.state.data.data? <Graph dataForGraph={this.state.data.data}/>: null}
+          {this.state.data.data?<div className="btn full-btn" onClick={this.freshStart}>חפש מחדש</div> : null}
             </div>
             </div>
          );

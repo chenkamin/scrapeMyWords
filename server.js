@@ -48,7 +48,7 @@ let scrape =async function(words){
         headless:false,
     });
     const page = await browser.newPage();
-    let websites = ['https://www.haaretz.co.il/','https://www.ynet.co.il/home/0,7340,L-8,00.html']
+    let websites = ['https://www.ynet.co.il/home/0,7340,L-8,00.html']
     //,"https://www.walla.co.il/","https://www.makorrishon.co.il/"
     await page.setViewport({ width: 1800, height: 900});
     for(let website of websites){

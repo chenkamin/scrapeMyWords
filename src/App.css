@@ -1,7 +1,7 @@
 body{
-  background-image: url("http://www.kol-barama.co.il/wp-content/uploads/2014/04/%D7%A2%D7%99%D7%AA%D7%95%D7%A0%D7%99%D7%9D-%D7%90%D7%99%D7%9C%D7%95%D7%A1%D7%98%D7%A8%D7%A6%D7%99%D7%941.jpg");
+  background-image: url("https://img.wcdn.co.il/f_auto,w_700/2/2/9/0/2290241-46.jpg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position:bottom;
   background-size: cover;
 }
 
@@ -27,13 +27,15 @@ body{
 
 
 input{
-  height: 25px;
+  height: 50px;
   padding:10px;
 direction: rtl;
 border:none;
 border-top-right-radius: 20px;
 border-bottom-right-radius: 20px;
 opacity: 0.9;
+background-color:black;
+color:white;
 /* box-shadow: 1px 3px 5px 0px rgba(179,179,179,1); */
 }
 
@@ -41,6 +43,7 @@ opacity: 0.9;
 
 .btn{
   text-align: center;
+  width:100px;
   line-height: 43px;
   margin-top: -0.2%;
   background-color:#1abc9c;
@@ -57,3 +60,73 @@ opacity: 0.9;
 
 }
 
+
+
+/* LOADER */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.loader {
+  height: 50px;
+  animation: rotate 3s linear infinite;
+  transform-origin: bottom center;
+}
+
+.circle {
+  display: inline-block;
+  background-color: purple;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: grow 1.5s linear infinite;
+  margin: -10px;
+}
+
+.circle:nth-child(2){
+  background-color: palevioletred;
+  animation-delay: .75s;
+}
+
+.circle:nth-child(3){
+  background-color: pink;
+  animation-delay: .5s;
+}
+
+@keyframes rotate{
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  50% {
+    transform: scale(1);
+  }
+}
+
+.full-btn{
+  margin-top: 10%;
+  align-self: center;
+  justify-self: center;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+    color: white;
+}
