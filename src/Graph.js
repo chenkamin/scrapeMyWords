@@ -15,11 +15,11 @@ class Graph extends Component {
         return (
 
           <BarChart
-          width={200}
+          width={250}
           height={300}
           data={data}
           margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
+            top: 5, right: 60, left: 40, bottom: 5,
           }}
         >
           <XAxis dataKey="name" />

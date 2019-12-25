@@ -60,9 +60,7 @@ console.log(this.state)
             </div >
             <div class="graph">
             <div class="loader">
-              {this.state.showLoader? <div class="circle"></div>: null}
-              {this.state.showLoader? <div class="circle"></div>: null}
-              {this.state.showLoader? <div class="circle"></div>: null}
+              {this.state.showLoader? <div id="loader"></div>: null}
           </div>
           {this.state.data.data? <Graph dataForGraph={this.state.data.data}/>: null}
           {this.state.data.data?<div className="btn full-btn" onClick={this.freshStart}>חפש מחדש</div> : null}
